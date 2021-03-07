@@ -32,7 +32,7 @@ const routes: Routes = [
 {path:'tenderDetail/:id',component:TenderDetailComponent},
 
 {
-    path:'admin',loadChildren:'./buyer/buyer.module#BuyerModule',
+    path:'admin',loadChildren:() => import('./buyer/buyer.module').then(m => m.BuyerModule),
     canActivate:[AuthGuard]
   },
 

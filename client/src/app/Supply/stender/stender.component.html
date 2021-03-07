@@ -1,0 +1,36 @@
+<table class="table table-sm table-striped" *ngFor="let p of service.tender">
+
+
+
+    <tr>
+        <th>Tender Reference No.</th>
+        <td>{{p.tenderRefNumber}}</td>
+    </tr>
+    <tr>
+
+    <tr>
+        <th>Tender Title</th>
+        <td>{{p.productTitle}}</td>
+    </tr>
+    <tr>
+
+    <tr>
+        <th>Tender Category</th>
+        <td>{{p.categoryType}}</td>
+    </tr>
+    <tr>
+        <th>Project Start Date</th>
+        <td>{{p.beginDate}}</td>
+    </tr>
+    <tr>
+        <th>Project End Date</th>
+        <td>{{p.endDate}}</td>
+    </tr>
+
+    <tr>
+        <th>Current Status</th>
+        <td>{{p.statusType}}</td>
+    </tr>
+
+
+</table>

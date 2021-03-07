@@ -1,0 +1,30 @@
+<table  *ngFor="let p of userservice.view ">
+  <tr>
+    <th>Tender Title</th>
+    <td>{{p.Title}}</td>
+  </tr>
+  <tr>
+      <th>Tender Category</th>
+      <td>{{p.Category}}</td>
+    </tr>
+    <tr>
+        <th>Desciption</th>
+        <td>{{p.Description}}</td>
+      </tr>
+
+      <tr>
+        <th>Type</th>
+        <td>{{p.Type}}</td>
+      </tr>
+      <tr>
+          <th>Tenden Begin Date</th>
+          <td>{{p.TenderBeginDate}}</td>
+        </tr>
+        <tr>
+            <th>Submissin End Date</th>
+            <td>{{p.TenderSubmitEndDate}}</td>
+          </tr>
+</table>
+
+
+<h3 style="text-align:center;margin-top:50px;">Details Does not Works Porperly</h3>

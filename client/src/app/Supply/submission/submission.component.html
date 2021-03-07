@@ -1,0 +1,102 @@
+<form [formGroup]="submitForm" (ngSubmit)="onSubmit(submitForm.value)">
+
+
+  <div class="grid-container">
+    <fieldset class="fieldset" style="background-color:#F6F6F6;">
+      <legend>Submit</legend>
+      <div class="grid-x grid-margin-x ">
+
+
+        <div class="cell large-6">
+          <label>
+           Tender Reference No: </label>
+            <input placeholder="Enter tender reference No." type="text" formControlName="TenderRefNumber" required>
+         
+        </div>
+
+        <div class="cell large-6">
+            <label>
+             TenderTitle  </label>
+              <input  placeholder="Enter Tender Title." type="text" formControlName="TenderTitle" required>
+          
+          </div>
+      </div>
+      <div class="grid-x grid-margin-x ">
+
+          <div formArrayName="Goods">
+              <div *ngFor="let group of Goods.controls; let i = index;" [formGroupName]="i">
+                  <a *ngIf="multiple_Good" class="button btn-fund-remove float-right" (click)="removeGoods(i)" type="button">
+                      &times;
+                    </a>
+
+                <div class="cell large-6">
+          <label>
+            Product name:</label>
+            <input type="text"  placeholder="Enter a Goods Name" formControlName="GoodsName" required>
+          
+        </div>
+
+        <div class="cell large-6">
+          <label>
+            Quantity: </label>
+            <input  placeholder="Enter a Single Quantity" type="number" formControlName="quentity" required>
+         
+        </div>
+
+        <div class="cell large-6">
+          <label>
+            Price: </label>
+            <input  placeholder="Enter  Price." type="number" formControlName="Price" required>
+         
+        </div>
+
+        </div>
+
+
+        <div class="cell large-6" style="margin-top:25px;">
+
+            <button type="button" class="secondary button rounded bordered hollow" 
+            (click)="addGoods()"
+           >+Add Goods</button>
+        </div>
+
+          </div>
+     
+ 
+  <div class="cell medium-3">
+          <label>
+           Total Price: </label>
+            <input type="number"  placeholder="Enter Total Price" formControlName="TotalPrice" required>
+         
+        </div>
+
+
+      </div>
+    </fieldset>
+
+    <div class="medium-4 large-3 medium-offset-2 large-offset-3 text-center cell">
+      <div class="h4">Total Amount</div>
+      <div class="stat">
+        <h3>
+          <small>value</small>
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-x grid-padding-x">
+    <div class="cell text-center">
+      <button class="primary button rounded bordered" type="submit" >Submit</button>
+
+    </div>
+  </div>
+
+
+</form>
+
+<hr>
+
+
+<!-- <p>
+  Form Value: {{ submitForm.value | json }}
+</p> -->

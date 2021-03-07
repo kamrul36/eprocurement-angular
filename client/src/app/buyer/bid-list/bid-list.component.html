@@ -1,0 +1,58 @@
+
+<div>
+    <h1>Bidder List</h1>
+</div>
+
+<table class="table table-sm table-striped" *ngFor="let p of buyerservice.bid">
+
+    <tr>
+        <th>Company Name</th>
+        <td>{{p.companyName}}</td>
+    </tr>
+    <tr>
+
+    <tr>
+        <th>Tender Reference Number</th>
+        <td>{{p.tenderRefNumber}}</td>
+    </tr>
+    <tr>
+
+    <tr>
+        <th>Tender Title</th>
+        <td>{{p.tenderTitle}}</td>
+    </tr>
+    <tr>
+        <th>Goods Name</th>
+        <td>{{p.goodsName}}</td>
+    </tr>
+    <tr>
+        <th>Quentity</th>
+        <td>{{p.quentity}}</td>
+    </tr>
+
+    <tr>
+        <th>Price</th>
+        <td>{{p.price}}</td>
+    </tr>
+    <tr>
+        <th>Total Price</th>
+        <td>{{p.totalPrice}}</td>
+    </tr>
+
+    <tr>
+        <td>
+
+            <button class="btn btn-sm btn-primary" (click)="deleteProduct(p.id)">
+                Select
+            </button>
+       
+      
+
+            <button class="btn btn-sm btn-danger" (click)="deleteProduct(p.id)">
+                Delete
+            </button>
+        </td>
+
+    </tr>
+
+</table>

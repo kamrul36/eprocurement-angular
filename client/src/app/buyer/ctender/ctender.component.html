@@ -1,0 +1,358 @@
+<form [formGroup]="tenderForm" (ngSubmit)="onSubmit(tenderForm.value)">
+
+
+  <!-- <div class="col-md-12">
+    <label>
+      Tender Id:</label>
+    <input type="hidden" formControlName="tenderid" required>
+  </div> -->
+  <div *ngIf="formPage === 1" class="grid-container">
+    <fieldset class="fieldset" style="background-color:#F6F6F6;">
+      <legend>Create Project</legend>
+
+      <div class="grid-x grid-margin-x ">
+        <div class="cell medium-6">
+          <label>
+            <h6> Tender Reference NO:</h6>
+          </label>
+          <input type="text" class="rounded" name="TenderRefNumber" id="TenderRefNumber"
+            placeholder="Enter a Reference No.." formControlName="TenderRefNumber" required>
+
+        </div>
+
+
+        <div class="cell medium-6">
+          <label>
+            <h6> Tender Title:</h6>
+          </label>
+          <input type="text" class="rounded" name="TenderTitle" id="TenderTitle" placeholder="Enter a Project Name.."
+            formControlName="TenderTitle" required>
+
+        </div>
+        <div formGroupName="TenderType">
+          <div class="cell medium-4">
+            <label>
+              <h6>Tender Type:</h6>
+            </label>
+            <select  formControlName="ProcurementType" class="rounded" name="ProcurementType" id="ProcurementType"
+              placeholder="Enter a Tender Type..">
+              <option value="0">Select Type:</option>
+              <option value="open">open</option>
+              <option value="limited">limited</option>
+              <option value="Quotation">Quotation</option>
+            </select>
+
+          </div>
+        </div>
+
+        <div formGroupName="TenderCategory">
+          <div class="cell medium-4">
+            <label>
+              <h6>Category Type:</h6>
+            </label>
+            <select style="margin-left:10px;" formControlName="CategoryType" class="rounded" name="CategoryType" id="CategoryType"
+              placeholder="Enter a Tender Category..">
+              <option value="0">Select Type:</option>
+              <option value="Goods">Goods</option>
+              <option value="Work">Work</option>
+              <option value="Service">Service</option>
+              <option value="Service&Goods">Service & Goods</option>
+              <option value="Goods&Work">Goods & Work</option>
+              <option value="Service&Work">Service & Work</option>
+            </select>
+
+          </div>
+        </div>
+
+        <div class="cell medium-4">
+          <label>
+            <h6>Document Upload </h6>
+          </label>
+          <input type="file" class="rounded" formControlName="DocumentUpdload" class="form-control">
+
+        </div>
+
+        <div class="cell medium-6">
+          <label>
+            <h6>BeginDate:</h6>
+          </label>
+          <input type="datetime" formControlName="BeginDate" class="rounded" name="BeginDate" id="BeginDate"
+            placeholder="Enter a BeginDate..">
+
+        </div>
+
+        <div class="cell medium-6">
+          <label>
+            <h6>EndDate:</h6>
+          </label>
+          <input type="datetime" formControlName="EndDate" class="rounded" name="EndDate" id="EndDate"
+            placeholder="Enter a EndDate..">
+
+        </div>
+
+        <div class="cell medium-6">
+          <input class="form-check-input" class="rounded" formControlName="AllowReSubmission" type="checkbox"
+            name="AllowReSubmission" id="AllowReSubmission">
+          <label class="form-check-label">
+            Allow ReSubmission
+          </label>
+        </div>
+
+        <div class="cell medium-6">
+          <input class="form-check-input" class="rounded" formControlName="IsActive" type="checkbox" name="IsActive"
+            id="IsActive">
+          <label class="form-check-label">
+            Is Active
+          </label>
+        </div>
+
+        <div class="cell medium-6">
+          <label>
+            <h6>Payment Type:</h6>
+          </label>
+          <select formControlName="PaymentType" class="rounded" name="PaymentType" id="PaymentType"
+            placeholder="Enter Payment System..">
+            <option value="0">Select Type:</option>
+            <option value="open">Online</option>
+            <option value="limited">Offline</option>
+          </select>
+
+        </div>
+
+
+        <div class="cell medium-6">
+          <label>
+            <h6>Contact Type:</h6>
+          </label>
+          <input type="text" class="rounded" formControlName="ContactType" name="ContactType" id="ContactType"
+            placeholder="Enter Contact.." required>
+
+        </div>
+
+        <div class="cell medium-6">
+          <label>
+            <h6>Location:</h6>
+          </label>
+          <input type="text" class="rounded" formControlName="Location" name="Location" id="Location"
+            placeholder="Enter a Location Name." required>
+
+        </div>
+      </div>
+    </fieldset>
+
+
+    <div class="grid-x grid-padding-x">
+      <div class="cell text-center">
+        <button class="primary button rounded bordered" type="button" value="Next" (click)="changePage(2)">Next
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="formPage === 2" class="grid-container">
+    <!-- <fieldset class="fieldset" style="background-color:#F6F6F6;">
+      <legend>Goods</legend>
+      <div class="grid-x grid-padding-x">
+
+        <div class="cell medium-6">
+         
+            <button type="button" class="secondary button rounded bordered hollow" 
+             (click)="addGoods()"
+            >Add Goods:</button>
+          <input type="hidden" class="rounded" formControlName="Goods" name="Goods" id="Goods"
+            placeholder="Enter a Goods Name (With Quantity)" required>
+            <div  formArrayName="Goods"   *ngFor="let good of Goods.controls; let i=index">
+                <input type="text" class="rounded" [formControlName]='i' placeholder="Enter a Goods Name (With Quantity)"  >
+                <a *ngIf="multiple_Good" class="button btn-fund-remove float-right" (click)="removeGoods(i)" type="button">
+                  &times;
+                </a>
+            </div>
+        </div>
+
+      </div>
+    </fieldset> -->
+
+    <div class="grid-x grid-padding-x">
+      <div class="cell text-center">
+        <button class="primary button rounded bordered" type="button" value="Next" (click)="changePage(3)">Next
+        </button>
+        <button class="secondary button rounded bordered hollow" type="button" value="Back"
+          (click)="changePage(1)">Previous</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div *ngIf="formPage === 3" class="grid-container">
+    <fieldset class="fieldset" style="background-color:#F6F6F6;">
+      <legend>Product</legend>
+      <div class="grid-x grid-padding-x">
+        <div formArrayName="productList">
+          <div *ngFor="let group of ProductArray.controls; let i = index;" [formGroupName]="i">
+
+            <div class="cell medium-4">
+              <label>
+                <h6> ProductTitle: </h6>
+              </label>
+              <input type="text" formControlName="ProductTitle" required name="ProductTitle" id="ProductTitle"
+                placeholder="Enter Product Title..">
+            </div>
+
+            <div class="cell medium-6">
+              <label>
+                <h6>ProductName:</h6>
+              </label>
+              <input type="text" formControlName="ProductName" required name="ProductName" id="ProductName"
+                placeholder="Enter Product..">
+            </div>
+
+            <div class="cell medium-4">
+              <label>
+                <h6>Quantity: </h6>
+              </label>
+              <input type="number" formControlName="Quantity" required pl="Quantity" id="Quantity"
+                placeholder="Enter Quantity.">
+
+            </div>
+            <div class="cell medium-4">
+              <label>
+                <h6> Description:</h6>
+              </label>
+              <input type="text" formControlName="Discription" required name="Description" id="Description"
+                placeholder="Write Description..">
+
+            </div>
+
+            <div class="cell medium-4">
+              <label>
+                <h6> ProductCategory:</h6>
+              </label>
+              <input type="text" formControlName="ProductCategory" required name="ProductCategory" id="ProductCategory"
+                placeholder="Enter Product Category..">
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="grid-x grid-padding-x">
+        <div class="cell text-center">
+          <button class="primary button rounded bordered" type="button" value="Next" (click)="changePage(4)">Next
+          </button>
+          <button class="secondary button rounded bordered hollow" type="button" value="Back"
+            (click)="changePage(2)">Previous</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div *ngIf="formPage === 4" class="grid-container">
+        <fieldset class="fieldset" style="background-color:#F6F6F6;">
+      <legend>Supplier List</legend>
+    <div class="grid-x grid-margin-x">
+        <table class="table table-sm table-striped">
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>Email</th>
+                    <th>Company Category</th>
+                    <th>Product Specification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of buyerservice.profile">
+                    <td>{{p.companyName}}</td>
+                    <td>{{p.email}}</td>
+                    <td>{{p.companyCategory}}</td>
+                    <td>{{p.productSpecification}}</td>
+                    <td></td>
+                    <td>
+                      
+                        <button class="btn btn-sm btn-danger" (click)="deleteProduct(p.id)">
+                            Select
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        
+    </div>
+    </fieldset>
+
+    <div class="grid-x grid-padding-x">
+        <div class="cell text-center">
+          <button class="primary button rounded bordered" type="button" value="Next" (click)="changePage(5)">Next
+          </button>
+          <button class="secondary button rounded bordered hollow" type="button" value="Back"
+            (click)="changePage(3)">Previous</button>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+  <div *ngIf="formPage === 5" class="grid-container">
+    <fieldset class="fieldset" style="background-color:#F6F6F6;">
+      <legend>Date</legend>
+      <div class="grid-x grid-padding-x">
+
+
+
+        <div class="cell medium-4">
+          <label>
+            <h6>Bid Opening Date: </h6>
+          </label>
+          <input type="datetime" formControlName="BidOpeningDate" class="form-control" name="BidOpeningDate"
+            id="BidOpeningDate" placeholder=" Bid Opening Date..">
+
+        </div>
+        <div class="cell medium-4">
+          <label>
+            <h6>Bid Closing Date:</h6>
+          </label>
+          <input type="datetime" formControlName="BidClosingDate" class="form-control" name="BidClosingDate"
+            id="BidClosingDate" placeholder=" Bid Closing Date..">
+
+        </div>
+        <div class="cell medium-4">
+            <label>
+              <h6>Project Total Cost:</h6>
+            </label>
+            <input type="number" formControlName="pTotalCost" class="form-control" name="pTotalCost"
+              id="pTotalCost" placeholder="Enter Total Cost ..">
+  
+          </div>
+
+
+        <div formGroupName="Status">
+          <div class="cell medium-4">
+            <label>
+              <h6>Status:</h6>
+            </label>
+            <input type="text" formControlName="StatusType" required name="StatusType" id="StatusType"
+              placeholder="Enter a status..">
+
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="grid-x grid-padding-x">
+      <div class="cell text-center">
+        <button class="primary button rounded bordered" type="submit" [disabled]="!tenderForm.valid">Submit</button>
+        <button class="secondary button rounded bordered hollow" type="button" value="Back" (click)="changePage(4)">
+          Previous page
+        </button>
+
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- {{tenderForm.value | json}} -->

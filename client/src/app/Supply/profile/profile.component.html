@@ -1,0 +1,98 @@
+<form [formGroup]="UserForm" (ngSubmit)="onSubmit(UserForm.value)">
+
+
+<div  class="grid-container">
+  <fieldset class="fieldset" style="background-color:#F6F6F6;">
+    <legend>User Profile</legend>
+    <div class="grid-x grid-margin-x ">
+
+
+      <div class="cell medium-5">
+        <label>
+          <h6> Email:</h6>
+        </label>
+        <input type="text" class="rounded" name="Email" id="Email"
+          placeholder="Enter a Email.." formControlName="Email" required>
+
+      </div>
+
+
+      <div class="cell medium-5">
+        <label>
+          <h6> Company Name:</h6>
+        </label>
+        <input type="text" class="rounded" name="CompanyName" id="CompanyName" placeholder="Enter Company Name.."
+          formControlName="CompanyName" required>
+
+      </div>
+  
+        <div class="cell medium-5">
+          <label>
+            <h6>Company Category:</h6>
+          </label>
+          <input type="text" class="rounded" name="CompanyCategory" id="CompanyCategory" placeholder="Enter Company Category.."
+          formControlName="CompanyCategory" required>
+
+
+        </div>
+  
+
+    
+      <div class="cell medium-6">
+        <label>
+          <h6>Company Address </h6>
+        </label>
+        <input type="text" class="rounded" formControlName="CompanyAddress" class="rounded"  placeholder="Enter Company Address..">
+
+      </div>
+
+      <div class="cell medium-4">
+        <label>
+          <h6>Phone:</h6>
+        </label>
+        <input type="number" formControlName="Phone" class="rounded" name="Phone" id="Phone"
+          placeholder="Enter a Number.">
+
+      </div>
+
+      <div class="cell medium-4">
+        <label>
+          <h6>Trade License No:</h6>
+        </label>
+        <input type="text" formControlName="TradeLicenseNo" class="rounded" name="TradeLicenseNo" id="TradeLicenseNo"
+          placeholder="Enter a EndDate..">
+
+      </div>
+
+      <div class="cell medium-8">
+        <label>
+          <h6>Description</h6>
+        </label>
+        <input type="text" formControlName="Description" class="rounded" name="Description" id="Description"
+          placeholder="Enter Description about Company..">
+
+      </div>
+
+      <div class="cell medium-8">
+        <label>
+          <h6>Product Specification:</h6>
+        </label>
+        <input type="text" formControlName="ProductSpecification" class="rounded" name="ProductSpecification" id="ProductSpecification"
+          placeholder="Enter own Product Name..">
+
+      </div>
+      </div>
+      </fieldset>
+      </div>
+
+      <div class="grid-x grid-padding-x">
+          <div class="cell text-center">
+            <button class="primary button rounded bordered" type="submit" [disabled]="!UserForm.valid">Submit</button>
+  
+          </div>
+        </div>
+
+    </form>
+
+    <!-- {{UserForm.value | json}} -->
+    

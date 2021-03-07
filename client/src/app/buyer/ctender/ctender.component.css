@@ -1,0 +1,20 @@
+label {
+    line-height: 1;
+    margin-left: 15px;
+    font-size: .75em;
+    color: #039be5;
+}
+
+.btn-fund-remove{
+    color: #555;
+    padding: 8px;
+    margin: -21px;
+    border: 0; 
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    background-color: #dbdbdb;
+}
+
+.btn-fund-remove:hover{
+    background-color: #4CAF50;
+}

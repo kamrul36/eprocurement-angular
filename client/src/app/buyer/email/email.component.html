@@ -1,0 +1,62 @@
+<form [formGroup]="submitForm" (ngSubmit)="onSubmit(submitForm.value)">
+
+
+  <div class="grid-container">
+    <fieldset class="fieldset" style="background-color:#F6F6F6;">
+      <legend>Email</legend>
+      <div class="grid-x grid-margin-x ">
+
+
+        <div class="cell large-6">
+          <label>
+            From </label>
+          <input placeholder="From" type="text" formControlName="From" required>
+
+        </div>
+
+        <div class="cell large-6">
+          <label>
+            TO </label>
+          <input placeholder="To" type="email" formControlName="To" required>
+
+        </div>
+
+        <div class="cell large-6">
+          <label>
+            Subject </label>
+          <input placeholder="Subject" type="email" formControlName="Subject" required>
+
+        </div>
+
+
+        <div class="cell large-8">
+          <label>
+            Description </label>
+          <textarea placeholder="Description" type="text" formControlName="Description" required></textarea>
+
+        </div>
+      </div>
+
+
+
+    </fieldset>
+
+
+  </div>
+
+  <div class="grid-x grid-padding-x">
+    <div class="cell text-center">
+      <button class="primary button rounded bordered" type="submit">Submit</button>
+
+    </div>
+  </div>
+
+
+</form>
+
+<hr>
+
+
+<!-- <p>
+    Form Value: {{ submitForm.value | json }}
+  </p> -->

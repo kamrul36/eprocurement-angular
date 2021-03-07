@@ -1,0 +1,44 @@
+.contentBox {
+        padding: 0 30px;
+      }
+
+.top-heading {
+    position: relative;
+    background-color: #F6F6F6;
+    margin-top: 50px;
+    box-shadow: 1px 2px 2px #dedede;
+    position: relative;
+    transition: all .4s ease-in-out;
+    padding-bottom: 30px;
+    &:hover {
+        box-shadow: 3px 6px 10px #dedede;
+    }
+    .text {
+        margin-top: 40px;
+        padding: 20px;
+        p {
+            font-size: 18px;
+        }
+        h6 {
+            line-height: 1.4;
+        }
+    }
+}
+
+.menuButton{
+   
+    background: white;
+    width: 131px;
+    font-size: 1.5em;
+    color: blue;
+    padding: 3px 10px 0;
+    text-align: center;
+    border: 1px solid yellow;
+    transition: background-color .25s ease-out 0s,color .25s ease-out 0s;
+    box-shadow: 0 0 2px rgba(0,0,0,.2);
+    vertical-align: middle;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-bottom: 60px;
+  
+}

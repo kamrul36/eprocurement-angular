@@ -1,0 +1,38 @@
+<div class="grid-x">
+    <div class="cell large-8 large-offset-2 contentBox">
+        <div class="top-heading" *ngFor="let p of userservice.interface">
+            <div class="text">
+                <h2>Tender Title:
+                    {{p.tenderTitle}}
+                </h2><br>
+                <h5>
+                    Last Date of Submission: {{p.tenderSubmitEndDate}}
+                </h5>
+                <br>
+                <table class="table table-sm table-striped">
+                    <thead>
+                        <th>Project Category</th>
+                        <th>Project Type</th>
+                        <th>Details</th>
+                    </thead>
+
+                    <tbody>
+                        <td>{{p.category}}</td>
+                        <td>{{p.type}}</td>
+                        <td>{{p.description}}</td>
+                    </tbody>
+
+                </table>
+
+
+                <br>
+                <h6>
+                    For More Details:
+                </h6>
+            </div>
+            <div class="menuButton" routerLink="/tenderDetail/{{p?.tenderID}}">
+                <h5>More</h5>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div>
+  <h3>Supplier List</h3>
+</div>
+
+<table class="table table-sm table-striped" *ngFor="let b of buyerservice.profile">
+
+  <!-- <tr>
+    <th>ID</th>
+    <td>{{b.id}}</td>
+  </tr> -->
+  <tr>
+    <th>Email</th>
+    <td>{{b.email}}</td>
+  </tr>
+  <tr>
+    <th>Company Name</th>
+    <td>{{b.companyName}}</td>
+  </tr>
+
+  <tr>
+    <th>Company Category</th>
+    <td>{{b.companyCategory}}</td>
+  </tr>
+
+  <tr>
+    <th>Company Address</th>
+    <td>{{b.companyAddress}}</td>
+  </tr>
+
+  <tr>
+    <th>Phone</th>
+    <td>{{b.phone}}</td>
+  </tr>
+
+  <tr>
+    <th>Trade License No</th>
+    <td>{{b.tradeLicenseNo}}</td>
+  </tr>
+
+  <tr>
+    <th>Description</th>
+    <td>{{b.description}}</td>
+  </tr>
+
+  <tr>
+    <th>Product Specification</th>
+    <td>{{b.productSpecification}}</td>
+  </tr>
+  <tr>
+    <td>
+
+      <button class="btn btn-sm btn-danger" (click)="ondelete(b.id)">
+        Delete
+      </button>
+    </td>
+  </tr>
+
+</table>

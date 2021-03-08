@@ -9,7 +9,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TenderDetailComponent implements OnInit {
 
-  constructor( private route: ActivatedRoute,private userservice:UserService) { }
+  constructor( 
+    private route: ActivatedRoute,
+    private userservice: UserService) { }
 
 
   // detailBox = {
@@ -22,11 +24,15 @@ export class TenderDetailComponent implements OnInit {
   // };
 
 
-public view=[];
+ view = [];
 id: string;
 
   ngOnInit() {
-  //   console.log(this.id = this.route.snapshot.params['id']);
+    
+    
+    
+    
+    //   console.log(this.id = this.route.snapshot.params['id']);
 
   // const url = 'http://localhost:42876/api/Interface/InterfaceTenders' + this.id;
 
@@ -51,8 +57,11 @@ id: string;
 
   
 
-// getDetail(){
-//   this.userservice.getView();
-// }
+getDetail(){
+  this.userservice.getView('1')
+  .subscribe((res: any) => {
+    this.view = res;
+  })
+}
 
 }

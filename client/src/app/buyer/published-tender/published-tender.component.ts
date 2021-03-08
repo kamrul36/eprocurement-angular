@@ -14,8 +14,19 @@ export class PublishedTenderComponent implements OnInit {
 
   constructor(private Buyerservice:BuyerServiceService,private route:Router) { }
 
+  buyerTender = [];
+
   ngOnInit() {
-    this.Buyerservice.getTenders();  
+    this.getTenders();
+  }
+  
+  
+  getTenders() {
+  this.Buyerservice.getTenders()
+  .subscribe((res: any) => {
+    this.buyerTender = res;
+  });
+
 }
 
 }

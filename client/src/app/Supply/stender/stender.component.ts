@@ -11,9 +11,18 @@ export class StenderComponent implements OnInit {
 
   constructor(private service:ServiceService) { }
 
-  ngOnInit() {
-    this.service.getTender();
+  tenderList = [];
 
+  ngOnInit() {
+      this.getTender();
+  }
+  
+  getTender() {
+    this.service.getTender()
+    .subscribe((res: any) => {
+      this.tenderList = res;
+    })
+    
   }
 
 }

@@ -5,6 +5,7 @@ import 'rxjs';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import{Tender}from '../buyer/Tender';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -22,14 +23,14 @@ readonly  RootUrl='http://localhost:42876/';
     return this.http.post(this.RootUrl+ 'api/Profile/AddProfile',tdata);  
    }
 
-   Fsubmit(fdata){
+   Fsubmit(fdata):Observable<any>{
     return this.http.post(this.RootUrl+ 'api/SubmitGoods/AddGood',fdata);  
    }
 
-   getTender() {  
-    return this.http.get(this.RootUrl+'api/Tender/Getenders')
+   getTender(): Observable<any> {  
+    return this.http.get <any[]>(this.RootUrl+'api/Tender/Getenders');
     
-    .toPromise().then(res=>this.tender=res as Tender[]);
+    // .toPromise().then(res=>this.tender=res as Tender[]);
   }
   
 

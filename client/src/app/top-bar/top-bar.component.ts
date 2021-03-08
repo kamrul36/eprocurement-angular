@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router}from '@angular/router';
-import {UserService}from '.././Shared/user.service';
+import {Router} from '@angular/router';
+import {UserService} from '.././Shared/user.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,7 +9,10 @@ import {UserService}from '.././Shared/user.service';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor(private router:Router,private service:UserService) { }
+  constructor(
+    private router: Router,
+    private service: UserService
+    ) { }
 
   isUserOptionShow = false;
 
@@ -19,11 +22,15 @@ export class TopBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  Logout(){
+  Logout() {
     localStorage.removeItem('userToken');
     this.service.token = null;
     this.router.navigate(['']);
   }
+
+  // isAuthenticated() {
+  //   return this.service.token !== null;
+  // }
 
   onUserOptionShow() {
     this.isUserOptionShow = !this.isUserOptionShow;

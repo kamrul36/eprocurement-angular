@@ -8,10 +8,22 @@ import { BuyerServiceService } from '../buyer-service.service';
 })
 export class BidListComponent implements OnInit {
 
-  constructor(private buyerservice:BuyerServiceService) { }
+  bidderList = []
+
+  constructor(
+    private buyerservice: BuyerServiceService
+    ) { }
 
   ngOnInit() {
-    this.buyerservice.bidderlist();
+    this.getBuyerContent();
+  }
+  
+  getBuyerContent() {
+    this.buyerservice.bidderlist()
+    .subscribe((res: any) => {
+      this.bidderList = res;
+    });
+
   }
 
 }

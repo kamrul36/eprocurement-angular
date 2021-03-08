@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import { Observable } from 'rxjs';
 import { User } from './user';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -14,12 +13,13 @@ import { Observable, of } from 'rxjs';
 export class UserService {
 
 
-  view:Interface[];
+  view: Interface[];
   interface: Interface[];
-  isLoginError: boolean = false;
+  isLoginError = false;
   token = null;
 
-  readonly rootUrl = 'http://localhost:42876/';
+   rootUrl = 'http://localhost:42876/';
+  getTenderApi = this.rootUrl +  'api/Interface/InterfaceTenders';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -31,26 +31,27 @@ export class UserService {
       Email: user.Email,
       Password: user.Password
     }
-    var reqHeader = new HttpHeaders({ 'No-Auth': 'True' });
+    const reqHeader = new HttpHeaders({ 'No-Auth': 'True' });
     // console.log(body);
     return this.http.post(this.rootUrl + 'api/auth/register', body);
   }
 
-  userAuthentication(userName, password) {
-    var data = { "username": userName, "password": password };
-    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'No-Auth': 'True' });
+  userAuthentication(userName, password): Observable<any> {
+    const data = { 'username': userName, 'password': password };
+    const reqHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'No-Auth': 'True' });
     return this.http.post(this.rootUrl + 'api/auth/login', data, { headers: reqHeader });
 
   }
 
   OnSubmit(userName, password) {
-    this.userAuthentication(userName, password).subscribe((data: any) => {
+    this.userAuthentication(userName, password)
+    .subscribe((data: any) => {
       this.token = data.token;
       // console.log(this.token);
       localStorage.setItem('userToken', data.access_token);
       // console.log();
        this.router.navigate(['/admin/buyer']);
-       //this.router.navigate(['/supply']);
+      //this.router.navigate(['/supply']);
     },
       (err: HttpErrorResponse) => {
         this.isLoginError = true;
@@ -68,16 +69,16 @@ export class UserService {
   }
 
 
-  getInterface() {
-    return this.http.get(this.rootUrl + 'api/Interface/InterfaceTenders')
+  getInterface(): Observable<any> {
+    return this.http.get<any[]>(this.getTenderApi);
 
-      .toPromise().then(res => this.interface = res as Interface[]);
+      // .toPromise().then(res => this.interface = res as Interface[]);
   }
 
 
-  getView(TenderId:string):Observable<Interface> {
+  getView(TenderId: string): Observable<Interface> {
     return this.http.get<Interface>
-    (this.rootUrl + 'api/Interface/InterfaceTender'+TenderId);
+    (this.getTenderApi + TenderId);
 
       // .toPromise().then(res => this.view = res as Interface[]);
   }
@@ -85,7 +86,5 @@ export class UserService {
   getData(url): Observable<any[]> {
     return this.http.get<any[]>(url);
   }
-
- 
 
 }

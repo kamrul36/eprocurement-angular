@@ -10,11 +10,21 @@ import{BuyerServiceService}from '../buyer-service.service';
 })
 export class SupplierProfileComponent implements OnInit {
 
+  buyerProfile = [];
+
   constructor(private buyerservice:BuyerServiceService,private route:Router) { }
 
   ngOnInit() {
-    this.buyerservice.getProfile();
-
+    this.getBuyerProfile();
+  }
+  
+  
+  getBuyerProfile() {
+    this.buyerservice.getProfile()
+    .subscribe((res: any) =>  {
+      this.buyerProfile = res;
+    })
+    
   }
 
   ondelete(id:number){

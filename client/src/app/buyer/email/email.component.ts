@@ -7,21 +7,23 @@ import { FormBuilder, FormGroup,FormArray, FormControl } from '@angular/forms';
 })
 export class EmailComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder
+    ) { }
 
-  submitForm:FormGroup;
+  submitForm: FormGroup;
 
 
   ngOnInit() {
-    this.submitForm=this.fb.group({
-      From:[''],
-      To:[''],
-      Subject:[''],
-      Description:['']
-    })
+    this.submitForm = this.fb.group({
+      From: [''],
+      To: [''],
+      Subject: [''],
+      Description: ['']
+    });
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.submitForm.value);
   }
 

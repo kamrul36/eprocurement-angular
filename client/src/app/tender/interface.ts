@@ -3,8 +3,7 @@ export class Interface {
     tenderTitle: string;
     category: string;
     description: string;
-    type:string;
+    type: string;
     tenderBeginDate: Date;
-    tenderSubmitEndDate: Date
-   
+    tenderSubmitEndDate: Date;
 }

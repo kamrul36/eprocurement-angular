@@ -1,10 +1,10 @@
 <div class="topnav" id="myTopnav">
   <a routerLink="" style="margin-left:10px;">Home</a>
   <a routerLink="/tender" style="cursor: pointer">Tender</a>
-  <ng-template [ngIf]="!service.isAuthenticated()">
+  <!-- <ng-template [ngIf]="!service.isAuthenticated()">
     <a routerLink="/signup" style="cursor: pointer">Registration</a>
     <a routerLink="/login" style="cursor: pointer">Login</a>
-  </ng-template>
+  </ng-template> -->
   <a routerLink="/about" style="cursor: pointer">About</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
@@ -12,8 +12,8 @@
 
 
   <a routerLink="/notification" style="cursor: pointer">Notification</a>
-  <a *ngIf="service.isAuthenticated()" style="cursor: pointer;float: right;" 
-  (click)="Logout()">Logout</a>
+  <!-- <a *ngIf="service.isAuthenticated()" style="cursor: pointer;float: right;" 
+  (click)="Logout()">Logout</a> -->
 </div>
 
 <!-- ({{service.interface.length}}) -->

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router}from '@angular/router';
-import{UserService}from '../Shared/user.service';
+import {Router} from '@angular/router';
+import {UserService} from '../Shared/user.service';
 
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
@@ -12,7 +12,13 @@ import { FormBuilder } from '@angular/forms';
 })
 export class TenderComponent implements OnInit {
 
-  constructor( private userservice:UserService,private route:Router) { }
+
+  tenderInterface = [];
+
+  constructor(
+     private userservice: UserService,
+     private route: Router
+     ) { }
 
 
 
@@ -22,8 +28,11 @@ export class TenderComponent implements OnInit {
   }
 
 
-getInterface(){
-  this.userservice.getInterface();
+getInterface() {
+  this.userservice.getInterface()
+  .subscribe((res: any) => {
+    this.tenderInterface = res;
+  });
 }
 
 }

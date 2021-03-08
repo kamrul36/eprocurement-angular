@@ -12,4 +12,8 @@ export class ProfileListComponent implements OnInit {
   ngOnInit() {
   }
 
+  deleteProduct() {
+    
+  }
+
 }

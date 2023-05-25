@@ -18,8 +18,8 @@ export class UserService {
   isLoginError = false;
   token = null;
 
-   rootUrl = 'http://localhost:42876/';
-  getTenderApi = this.rootUrl +  'api/Interface/InterfaceTenders';
+  rootUrl = 'http://localhost:42876/';
+  getTenderApi = this.rootUrl + 'api/Interface/InterfaceTenders';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -30,7 +30,7 @@ export class UserService {
       UserName: user.UserName,
       Email: user.Email,
       Password: user.Password
-    }
+    };
     const reqHeader = new HttpHeaders({ 'No-Auth': 'True' });
     // console.log(body);
     return this.http.post(this.rootUrl + 'api/auth/register', body);
@@ -45,17 +45,17 @@ export class UserService {
 
   OnSubmit(userName, password) {
     this.userAuthentication(userName, password)
-    .subscribe((data: any) => {
-      this.token = data.token;
-      // console.log(this.token);
-      localStorage.setItem('userToken', data.access_token);
-      // console.log();
-       this.router.navigate(['/admin/buyer']);
-      //this.router.navigate(['/supply']);
-    },
-      (err: HttpErrorResponse) => {
-        this.isLoginError = true;
-      });
+      .subscribe((data: any) => {
+        this.token = data.token;
+        // console.log(this.token);
+        localStorage.setItem('userToken', data.access_token);
+        // console.log();
+        // this.router.navigate(['/admin/buyer']);
+        this.router.navigate(['/supply']);
+      },
+        (err: HttpErrorResponse) => {
+          this.isLoginError = true;
+        });
 
 
 
@@ -72,15 +72,15 @@ export class UserService {
   getInterface(): Observable<any> {
     return this.http.get<any[]>(this.getTenderApi);
 
-      // .toPromise().then(res => this.interface = res as Interface[]);
+    // .toPromise().then(res => this.interface = res as Interface[]);
   }
 
 
   getView(TenderId: string): Observable<Interface> {
     return this.http.get<Interface>
-    (this.getTenderApi + TenderId);
+      (this.getTenderApi + TenderId);
 
-      // .toPromise().then(res => this.view = res as Interface[]);
+    // .toPromise().then(res => this.view = res as Interface[]);
   }
 
   getData(url): Observable<any[]> {

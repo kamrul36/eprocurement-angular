@@ -11,16 +11,16 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
 
-  isLoginError : boolean = false;
-  constructor( private userService : UserService,private router : Router) { }
+  isLoginError: boolean = false;
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
-  
-  OnSubmit(userName,password){
+
+  OnSubmit(userName, password) {
     this.userService.OnSubmit(userName, password);
     // this.router.navigate(['/d']);
- }
+  }
 
 
 

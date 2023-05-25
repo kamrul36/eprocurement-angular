@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import{FormsModule}from '@angular/forms';
-import {HttpClientModule}from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -14,9 +14,9 @@ import { SignUpComponent } from './User/sign-up/sign-up.component';
 import { TenderComponent } from './tender/tender.component';
 import { HomeDetailsComponent } from './home-details/home-details.component';
 import { BuyerComponent } from './buyer/buyer.component';
-import{UserService}from './Shared/user.service';
-import{AuthGuard}from './auth/auth.guard';
-import {SupplierComponent}from './Supply/supplier/supplier.component';
+import { UserService } from './Shared/user.service';
+import { AuthGuard } from './auth/auth.guard';
+import { SupplierComponent } from './Supply/supplier/supplier.component';
 import { StenderComponent } from './Supply/stender/stender.component';
 import { NotificationComponent } from './notification/notification.component';
 import { AboutComponent } from './about/about.component';
@@ -37,7 +37,7 @@ import { ReversePipe } from './about/reverse.pipe';
     SignUpComponent,
     TenderComponent,
     HomeDetailsComponent,
-    
+
     SupplierComponent,
     NotificationComponent,
     AboutComponent,
@@ -56,9 +56,9 @@ import { ReversePipe } from './about/reverse.pipe';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-  
+
   ],
-  providers: [UserService,AuthGuard,ServiceService],
+  providers: [UserService, AuthGuard, ServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

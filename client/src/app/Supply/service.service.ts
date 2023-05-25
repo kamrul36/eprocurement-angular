@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import{map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import 'rxjs';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import{Tender}from '../buyer/Tender';
+import { Tender } from '../buyer/Tender';
 import { Observable } from 'rxjs';
 
 
@@ -13,25 +13,25 @@ import { Observable } from 'rxjs';
 })
 export class ServiceService {
 
-  tender:Tender[];
+  tender: Tender[];
 
-readonly  RootUrl='http://localhost:42876/';
+  readonly RootUrl = 'http://localhost:42876/';
 
-  constructor(private http:HttpClient,private router:Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
-  AddData(tdata){
-    return this.http.post(this.RootUrl+ 'api/Profile/AddProfile',tdata);  
-   }
+  AddData(tdata) {
+    return this.http.post(this.RootUrl + 'api/Profile/AddProfile', tdata);
+  }
 
-   Fsubmit(fdata):Observable<any>{
-    return this.http.post(this.RootUrl+ 'api/SubmitGoods/AddGood',fdata);  
-   }
+  Fsubmit(fdata): Observable<any> {
+    return this.http.post(this.RootUrl + 'api/SubmitGoods/AddGood', fdata);
+  }
 
-   getTender(): Observable<any> {  
-    return this.http.get <any[]>(this.RootUrl+'api/Tender/Getenders');
-    
+  getTender(): Observable<any> {
+    return this.http.get<any[]>(this.RootUrl + 'api/Tender/Getenders');
+
     // .toPromise().then(res=>this.tender=res as Tender[]);
   }
-  
+
 
 }

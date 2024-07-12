@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{Location}from '@angular/common';
 
-import { FormGroup, FormBuilder, FormControl, FormArray, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, FormControl, UntypedFormArray, Validators } from '@angular/forms';
 import { BuyerServiceService } from '../buyer-service.service';
 import { Observable } from 'rxjs';
 
@@ -14,9 +14,9 @@ export class CtenderComponent implements OnInit {
 
   constructor(private buyerservice: BuyerServiceService,
     
-    private fb: FormBuilder) { }
+    private fb: UntypedFormBuilder) { }
 
-  tenderForm: FormGroup
+  tenderForm: UntypedFormGroup
   formPage = 1;
   multiple_Good = false;
 
@@ -63,7 +63,7 @@ export class CtenderComponent implements OnInit {
   }
 
   get ProductArray() {
-    return <FormArray>this.tenderForm.get('productList');
+    return <UntypedFormArray>this.tenderForm.get('productList');
   }
 
 //   get Goods(){

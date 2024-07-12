@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormBuilder, FormGroup,FormArray, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup,UntypedFormArray, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { ServiceService } from '../service.service';
 
@@ -12,11 +12,11 @@ import { ServiceService } from '../service.service';
 })
 export class SubmissionComponent implements OnInit {
 
-  submitForm: FormGroup;
+  submitForm: UntypedFormGroup;
   multiple_Good = false;
   
 
-  constructor( private fb: FormBuilder,private service:ServiceService) { }
+  constructor( private fb: UntypedFormBuilder,private service:ServiceService) { }
 
   ngOnInit() {
     this.submitForm= this.fb.group({
@@ -38,7 +38,7 @@ export class SubmissionComponent implements OnInit {
   }
 
   get Goods(){
-    return this.submitForm.get('Goods') as FormArray;
+    return this.submitForm.get('Goods') as UntypedFormArray;
   }
 
   addGoods() {

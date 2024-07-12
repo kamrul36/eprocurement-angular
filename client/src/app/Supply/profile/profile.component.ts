@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, FormArray, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, FormControl, FormArray, Validators } from '@angular/forms';
 import { ServiceService } from '../service.service';
 
 
@@ -10,10 +10,10 @@ import { ServiceService } from '../service.service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor( private fb: FormBuilder,private service:ServiceService) { }
+  constructor( private fb: UntypedFormBuilder,private service:ServiceService) { }
 
 
-  UserForm:FormGroup
+  UserForm:UntypedFormGroup
 
 
   ngOnInit() {

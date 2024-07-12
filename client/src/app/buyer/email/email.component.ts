@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup,FormArray, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup,FormArray, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-email',
   templateUrl: './email.component.html',
@@ -8,10 +8,10 @@ import { FormBuilder, FormGroup,FormArray, FormControl } from '@angular/forms';
 export class EmailComponent implements OnInit {
 
   constructor(
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
     ) { }
 
-  submitForm: FormGroup;
+  submitForm: UntypedFormGroup;
 
 
   ngOnInit() {
